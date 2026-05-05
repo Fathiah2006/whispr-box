@@ -1,6 +1,7 @@
 export type MessageType =
   | 'text'
-  | 'media'
+  | 'image'
+  | 'file'
   | 'file-offer'
   | 'file-accept'
   | 'call-offer'

@@ -153,9 +153,12 @@ export async function encryptMessage(
   // 2. Generate 96-bit IV
   const iv = getRandomBytes(12);
 
+  const ivBuffer = iv.buffer.slice(iv.byteOffset, iv.byteOffset + iv.byteLength) as ArrayBuffer;
+  const ivSafe = new Uint8Array(ivBuffer);
+
   // 3. Encrypt plaintext with AES-GCM
   const ciphertext = await crypto.subtle.encrypt(
-    { name: 'AES-GCM', iv },
+    { name: 'AES-GCM', iv: ivSafe },
     aesKey,
     encoder.encode(plaintext)
   );
@@ -179,7 +182,7 @@ export async function encryptMessage(
 
   return {
     ciphertext: toBase64(ciphertext),
-    iv: toBase64(iv.buffer.slice(iv.byteOffset, iv.byteOffset + iv.byteLength)),
+    iv: toBase64(ivBuffer),
     encryptedKey: toBase64(encryptedKey),
     encryptedKeyForSelf: toBase64(encryptedKeyForSelf),
   };

@@ -143,7 +143,7 @@ export default function VideoCall({ isInitiator, incomingOffer, onSendSignal, on
           ) : (
             <div className="video-waiting">
               <div className="spinner spinner-lg" />
-              <p>{connectionState === 'new' || connectionState === 'checking' ? 'Connecting...' : 'Waiting for video...'}</p>
+              <p>{connectionState === 'new' ? 'Connecting...' : 'Waiting for video...'}</p>
             </div>
           )}
         </div>

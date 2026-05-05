@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react';
+import React, { createContext, useContext, useState, useCallback, useRef } from 'react';
 import * as api from '../lib/api';
 import * as cryptoLib from '../lib/crypto';
 import { connectWS, disconnectWS } from '../lib/ws';
@@ -64,7 +64,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const salt = cryptoLib.generateSalt();
 
     // 3. Wrap private key (use slice to ensure exact buffer size)
-    const saltBuffer = salt.buffer.slice(salt.byteOffset, salt.byteOffset + salt.byteLength);
+    const saltBuffer = salt.buffer.slice(salt.byteOffset, salt.byteOffset + salt.byteLength) as ArrayBuffer;
     const wrappedPrivKey = await cryptoLib.wrapPrivateKey(keyPair.privateKey, password, saltBuffer);
 
     // 4. Export public key

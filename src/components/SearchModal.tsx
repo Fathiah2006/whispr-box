@@ -13,7 +13,7 @@ export default function SearchModal({ onSelect, onClose }: SearchModalProps) {
   const [loading, setLoading] = useState(false);
   const [searched, setSearched] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const debounceRef = useRef<number>();
+  const debounceRef = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     inputRef.current?.focus();
