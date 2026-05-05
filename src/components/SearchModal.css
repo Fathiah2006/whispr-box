@@ -1,0 +1,125 @@
+/* Search Modal */
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 24px;
+}
+
+.search-modal {
+  width: 100%;
+  max-width: 460px;
+  max-height: 70vh;
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+}
+
+.search-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.search-modal__header h2 {
+  font-size: 1.2rem;
+}
+
+/* Input */
+.search-modal__input-wrap {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.search-modal__icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.search-modal__input {
+  padding-left: 42px !important;
+}
+
+/* Results */
+.search-modal__results {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.search-modal__loading {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+.search-modal__empty {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+}
+
+.search-modal__result {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: background var(--duration-fast) var(--ease-out);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+}
+
+.search-modal__result:hover {
+  background: var(--surface-3);
+}
+
+.search-modal__avatar {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--surface-0);
+}
+
+.search-modal__result-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.search-modal__result-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.search-modal__result-username {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}

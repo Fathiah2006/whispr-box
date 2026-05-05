@@ -1,0 +1,63 @@
+/* Dashboard layout */
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(ellipse 40% 30% at 10% 90%, rgba(226, 164, 59, 0.03) 0%, transparent 60%),
+    var(--surface-0);
+}
+
+.dashboard__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* Empty state */
+.dashboard__empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px;
+}
+
+.dashboard__empty-icon {
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.dashboard__empty h2 {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+}
+
+.dashboard__empty p {
+  font-size: 0.9rem;
+  max-width: 320px;
+}
+
+/* Mobile: hide sidebar when chat open */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+  
+  .dashboard--chat-active .sidebar {
+    display: none;
+  }
+  
+  .dashboard:not(.dashboard--chat-active) .dashboard__main {
+    display: none;
+  }
+}
